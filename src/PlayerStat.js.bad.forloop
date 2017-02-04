@@ -1,0 +1,89 @@
+import React , {Component} from 'react';
+import {PlayerOptions} from './PlayerOptions';
+
+
+export class PlayerStat extends Component {
+
+    state = {
+        totalOptions : 0,
+        listItem : [],
+        inputText : '',
+        removeTest : 0
+    }
+
+    removeTest = () => {
+        this.setState({removeTest: 1 });
+        console.log(this.state.removeTest);
+    }
+
+    deleteListAtIndex = (index) => {
+            const result = this.state.listItem;
+            result.splice(index, 1);
+            this.setState({listItem: result});
+        }
+
+    submitList = () => {
+        this.setState({
+            listItem: this.state.listItem.concat([this.state.inputText]),
+            inputText: ''
+        })
+    }
+
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            this.submitList();
+        }
+    }
+
+    handleOptions = (event) => {
+
+        //console.log("event " + parseInt(event.target.value));
+        this.state.totalOptions += 1;
+        //console.log("totalOptions " + this.state.totalOptions);
+        //this.state.totalOptions += parseInt(event.target.value);
+        //console.log(this.state.totalOptions);
+        this.setState({totalOptions: this.state.totalOptions});
+    }
+
+    render() {
+
+        var indents = [];
+        for (var i = 0; i < this.state.totalOptions; i++) {
+          // Pass Remove Action Though prop to child component
+          indents.push(<PlayerOptions key={i} removeOption={this.removeTest} removeKey={i} />);
+        }
+
+            return(
+                    <div className="box">
+                        <div className="control is-horizontal">
+                            <div className="control-label">
+                                <label className="label">ชื่อ</label>
+                            </div>
+                             <div className="control">
+                                 <input className="input" type="text" placeholder="Name"/>
+                             </div>
+                        </div>
+                        <div className="control is-horizontal">
+                            <div className="control-label">
+                                <label className="label">คะแนน</label>
+                            </div>
+                             <div className="control">
+                                 <input className="input" type="text" placeholder="Name"/>
+                             </div>
+                        </div>
+
+                        <div className="control is-horizontal">
+                            <div className="control">
+                                <button className="column bttn-unite bttn-md bttn-primary" onClick={this.handleOptions} value={1}>Add Option</button>
+                            </div>
+                        </div>
+
+
+                        {indents}
+
+
+
+                    </div>
+        )
+    }
+}

@@ -1,0 +1,78 @@
+import React, { Component } from 'react';
+import './App.css';
+//import {CounterComponent} from './CounterComponent';
+import {createStore} from 'redux';
+//import ReactDOM from 'react-dom';
+
+// Regular Function
+const add = (num) =>({
+    type : 'ADD',
+    payload : num,
+})
+
+
+// ReducerCounter
+const reducerCounter = (state = 0,action) => {
+    switch (action.type) {
+        case 'INCREMENT':
+            return state + 1;
+        case 'DECREMENT':
+            return state - 1;
+        default:
+            return state;
+    }
+}
+
+// ReducerNum
+const reducerNum = (state = {num : 0},action) => {
+    switch (action.type) {
+        case 'ADD':
+            return {
+                num : state.num + action.payload
+            }
+        default:
+            return {num : 0}
+    }
+}
+
+const store = createStore(reducerNum);
+
+//ReactDOM.store.subscribe(render);
+//ReactDOM.render();
+
+class App extends Component {
+
+
+  // testCallRedux() {
+  //       console.log(store.getState());
+  // }
+
+  render() {
+      // Reducer Function !!! ???
+
+      //store.subscribe(render);
+      //render();
+
+      console.log(store.getState());
+      store.dispatch(add(5));
+      //store.dispatch({type:'INCREMENT'});
+      console.log(store.getState());
+      //store.dispatch({type:'DECREMENT'});
+      //console.log(store.getState());
+      //store.dispatch({type:'DECREMENT'});
+      //console.log(store.getState());
+
+
+    return (
+
+
+    <div>
+        test
+        {/* <CounterComponent value={store.getState()}/> */}
+    </div>
+
+    );
+  }
+}
+
+export default App;
