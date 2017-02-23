@@ -6,7 +6,8 @@ class App extends Component {
 
     state = {
         totalReport : "",
-        totalReportTrim : ""
+        totalReportTrim : "",
+        totalCurrentResult : []
     }
 
     handleSubmitReport = (event) => {
@@ -350,6 +351,8 @@ class App extends Component {
         console.log(totalResult);
         console.log(totalCurrentResult);
 
+        this.setState({totalCurrentResult: totalResult});
+
 
         // var testtest = [];
         // function isBigEnough(value,index) {
@@ -447,7 +450,10 @@ class App extends Component {
                 </p>
                 <button className="button is-primary" onClick={this.handleAnalyzeReport}>Submit</button>
 
-
+                <label className="label">ผลจากการคำนวน</label>
+                <p className="control">
+                    <input className="input" type="text" placeholder="Text input" value={this.state.totalCurrentResult}/>
+                </p>
 
 
 
