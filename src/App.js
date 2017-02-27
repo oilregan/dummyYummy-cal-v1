@@ -397,6 +397,8 @@ class App extends Component {
 
         this.setState({totalCurrentResult: totalResult});
 
+        // test
+
 
         // var testtest = [];
         // function isBigEnough(value,index) {
