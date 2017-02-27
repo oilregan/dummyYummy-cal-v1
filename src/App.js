@@ -347,6 +347,50 @@ class App extends Component {
         totalCurrentResult = 0;
         currentPlayerIndex = [];
 
+        // Filter 8 ครั้งตามจำนวนคนเล่นทั้งหมด (แตง)
+        var filtered = totalPlayerName.filter(startsWith("แตง"));
+        if (currentPlayerIndex != 0) {
+            totalResult.push("ฝ้าย");
+        }
+        console.log(currentPlayerIndex);
+
+        // เทียบว่าตรงตำแหน่งไหนบ้าง
+        for (var i = 0; i < totalPlayerScore.length; i++) {
+          if (currentPlayerIndex[currentPlayerIndexCount] === i) {
+              currentPlayerIndexCount += 1;
+              totalCurrentResult += parseInt(totalPlayerScore[i]);
+              console.log(i);
+          }
+        }
+        totalResult.push(totalCurrentResult);
+
+        // ClerData
+        currentPlayerIndexCount = 0;
+        totalCurrentResult = 0;
+        currentPlayerIndex = [];
+
+        // Filter 9 ครั้งตามจำนวนคนเล่นทั้งหมด (แตง)
+        var filtered = totalPlayerName.filter(startsWith("แตง"));
+        if (currentPlayerIndex != 0) {
+            totalResult.push("บอย");
+        }
+        console.log(currentPlayerIndex);
+
+        // เทียบว่าตรงตำแหน่งไหนบ้าง
+        for (var i = 0; i < totalPlayerScore.length; i++) {
+          if (currentPlayerIndex[currentPlayerIndexCount] === i) {
+              currentPlayerIndexCount += 1;
+              totalCurrentResult += parseInt(totalPlayerScore[i]);
+              console.log(i);
+          }
+        }
+        totalResult.push(totalCurrentResult);
+
+        // ClerData
+        currentPlayerIndexCount = 0;
+        totalCurrentResult = 0;
+        currentPlayerIndex = [];
+
         // จบโปรแกรม
         console.log(totalResult);
         console.log(totalCurrentResult);
