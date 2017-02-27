@@ -348,7 +348,7 @@ class App extends Component {
         currentPlayerIndex = [];
 
         // Filter 8 ครั้งตามจำนวนคนเล่นทั้งหมด (แตง)
-        var filtered = totalPlayerName.filter(startsWith("แตง"));
+        var filtered = totalPlayerName.filter(startsWith("ฝ้าย"));
         if (currentPlayerIndex != 0) {
             totalResult.push("ฝ้าย");
         }
@@ -370,7 +370,7 @@ class App extends Component {
         currentPlayerIndex = [];
 
         // Filter 9 ครั้งตามจำนวนคนเล่นทั้งหมด (แตง)
-        var filtered = totalPlayerName.filter(startsWith("แตง"));
+        var filtered = totalPlayerName.filter(startsWith("บอย"));
         if (currentPlayerIndex != 0) {
             totalResult.push("บอย");
         }
